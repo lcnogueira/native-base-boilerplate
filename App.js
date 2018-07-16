@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, ActivityIndicator } from 'react-native';
-import MainNavigator from './components/MainNavigator';
+import MainRouter from './src/MainRouter';
 
 export default class App extends React.Component {
 
@@ -12,6 +12,7 @@ export default class App extends React.Component {
     await Expo.Font.loadAsync({
       'Roboto': require('native-base/Fonts/Roboto.ttf'),
       'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+      'Ionicons': require("native-base/Fonts/Ionicons.ttf")
     })
     this.setState({ ready: true });
   }
@@ -26,16 +27,15 @@ export default class App extends React.Component {
     };
 
     return (
-      <MainNavigator />
+      <MainRouter />
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
+  container:{
+    flex:1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
