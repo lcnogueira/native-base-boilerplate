@@ -10,12 +10,11 @@ import {
   Icon
 } from 'native-base';
 
-const routes = ['Home', 'Profile'];
-
 export default class SideBar extends React.Component {
   render() {
+    const routes = this.props.items.map(route => route.routeName);
     return (
-      <Container>
+      <Container> 
         <Content>
           <Image
             source={{
