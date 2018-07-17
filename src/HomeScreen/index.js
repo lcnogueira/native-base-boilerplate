@@ -1,12 +1,7 @@
 import React from "react";
 import Container from '../../components/Container';
-import {
-  Button,
-  Text,
-  Form,
-  Item,
-  Input
-} from 'native-base';
+import Button from '../../components/Button';
+import { Form, Item, Input } from 'native-base';
 
 export default class ProfileScreen extends React.Component {
   render() {
@@ -19,16 +14,10 @@ export default class ProfileScreen extends React.Component {
           <Item last>
             <Input placeholder="Password" />
           </Item>
+          <Button action={() => this.props.navigation.navigate('Profile')}>
+            Login
+          </Button>
         </Form>
-        <Button
-          full
-          rounded
-          primary
-          style={{ marginTop: 10 }}
-          onPress={() => this.props.navigation.navigate('Profile')}
-        >
-          <Text>Login</Text>
-        </Button>
       </Container>
     );
   }

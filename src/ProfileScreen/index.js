@@ -1,10 +1,7 @@
 import React from "react";
 import Container from '../../components/Container';
-import {
-  Button,
-  Text,
-  Form, Item, Input
-} from 'native-base';
+import Button from '../../components/Button';
+import { Form, Item, Input } from 'native-base';
 import List from './List';
 
 export default class ProfileScreen extends React.Component {
@@ -30,14 +27,8 @@ export default class ProfileScreen extends React.Component {
               onChangeText={searchInput => this.setState({searchInput})}
             />
           </Item>
-          <Button
-            full
-            rounded
-            primary
-            style={{ marginTop: 10 }}
-            onPress={this.search}
-          >
-            <Text>Search</Text>
+          <Button action={this.search}>
+            Search
           </Button>
         </Form>
         <List list={this.state.list}/>
