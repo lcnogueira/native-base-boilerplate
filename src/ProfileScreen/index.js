@@ -1,37 +1,36 @@
 import React from "react";
-import Container from '../../components/Container';
-import Button from '../../components/Button';
-import { Form, Item, Input } from 'native-base';
-import List from './List';
+import Container from "../../components/Container";
+import Button from "../../components/Button";
+import { Form, Item, Input } from "native-base";
+import { Alert } from "react-native";
 
 export default class ProfileScreen extends React.Component {
   state = {
-    searchInput: '',
-    list: []
-  }
+    searchInput: ""
+  };
 
   search = () => {
-    this.setState({
-      list: [...this.state.list, this.state.searchInput],
-      searchInput: ''
-    });
-  }
-  
+    Alert.alert(
+      "Just for testing purposes",
+      `You typed: ${this.state.searchInput}`,
+      [{ text: "Ok", onPress: () => this.setState({ searchInput: "" }) }]
+    );
+  };
+
   render() {
     return (
-      <Container title={'Profile'}>
+      <Container title={"Profile"}>
         <Form>
           <Item>
-            <Input placeholder="Github" 
+            <Input
+              placeholder="Github"
               value={this.state.searchInput}
-              onChangeText={searchInput => this.setState({searchInput})}
+              name="searchInput"
+              onChangeText={searchInput => this.setState({ searchInput })}
             />
           </Item>
-          <Button action={this.search}>
-            Search
-          </Button>
+          <Button action={this.search}>Search</Button>
         </Form>
-        <List list={this.state.list}/>
       </Container>
     );
   }
